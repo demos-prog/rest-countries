@@ -38,6 +38,9 @@
 }
 
 .content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   width: 100%;
   padding: 10px;
   border: 1px solid #000;

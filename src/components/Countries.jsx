@@ -15,7 +15,17 @@ export default function Countries({ numberOfCountriesOnPage }) {
   }
 
   function addDots(number) {
-    return number
+    let result = "";
+    let str = "" + number;
+    let reversed = str.split("").reverse();
+    for (let i = 0; i < reversed.length; i++) {
+      if (i % 3 === 0 && i > 0) {
+        result += "." + reversed[i];
+      } else {
+        result += reversed[i];
+      }
+    }
+    return result.split("").reverse().join("");
   }
 
   useMemo(() => {

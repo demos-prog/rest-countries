@@ -4,7 +4,7 @@ import "./App.css";
 let Countries = React.lazy(() => import("./components/Countries"));
 
 function App() {
-  const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(8);
+  const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(16);
 
   function getMore(){
     setNumberOfCountriesOnPage(prev => prev + 8)
