@@ -1,8 +1,24 @@
-.wrapper{
+.wrapper {
   max-width: 1280px;
 }
 
-header{
+header {
+  height: 50px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+}
+
+header .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .wrapper span {
+  margin-left: 50px;
+}
+
+header .wrapper button {
+  background-color: transparent;
+  margin-right: 50px;
 }
