@@ -13,6 +13,7 @@
 }
 
 .countryCard{
+  
   overflow: hidden;
   display: flex;
   align-items: flex-start;

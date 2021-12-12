@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { nanoid } from "nanoid";
 import "./Countries.css";
+import styled from "styled-components";
 
-export default function Countries({ numberOfCountriesOnPage }) {
+export default function Countries({ theme, numberOfCountriesOnPage }) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
 
   async function getAllCountries() {
@@ -38,18 +39,34 @@ export default function Countries({ numberOfCountriesOnPage }) {
   let list = arrOfCountries.map((country) => {
     return (
       <div className="countriesItem" key={nanoid()}>
-        <div className="countryCard">
+        <Div theme={theme} className="countryCard">
           <div className="flag">
             <img alt="flag" src={country.flags.png}></img>
           </div>
           <div className="content">
-            {country.name.common}
-            <p>population: {addDots(country.population)}</p>
+            <b>{country.name.common}</b>
+            <p>
+              <b>Population:</b> {addDots(country.population)}
+            </p>
+            <p>
+              <b>Region:</b> {country.region}
+            </p>
+            <p>
+              <b>Capital:</b>{" "}
+              {Array.isArray(country.capital)
+                ? country.capital[0]
+                : country.capital}
+            </p>
           </div>
-        </div>
+        </Div>
       </div>
     );
   });
 
   return <div className="countriesWrapper">{list}</div>;
 }
+
+const Div = styled.div`
+  background-color: ${(props) => (props.theme === true ? "white" : "#2B3743")};
+  color: ${(props) => (props.theme === true ? "black" : "white")};
+`;
