@@ -1,6 +1,8 @@
 import React, { useState, Suspense } from "react";
 import "./null_styles.css";
+import Header from "./components/Header";
 import "./App.css";
+import styled from "styled-components";
 let Countries = React.lazy(() => import("./components/Countries"));
 
 function App() {
@@ -16,19 +18,25 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-        <button onClick={() => toggleTheme()}>Change theme</button>
-      </header>
-      <Suspense fallback="loading">
-        <Countries
-          theme={theme}
-          numberOfCountriesOnPage={numberOfCountriesOnPage}
-        />
-      </Suspense>
-      <button onClick={getMore}>See more</button>
-    </div>
+    <OuterDiv theme={theme}>
+      <div id="wrapper">
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Suspense fallback="loading">
+          <Countries
+            theme={theme}
+            numberOfCountriesOnPage={numberOfCountriesOnPage}
+          />
+        </Suspense>
+        <button onClick={getMore}>See more</button>
+      </div>
+    </OuterDiv>
   );
 }
 
 export default App;
+
+const OuterDiv = styled.div`
+  background-color: ${(props) => (props.theme === true ? "white" : "#202D36")};
+  display: flex;
+  justify-content: center;
+`;
