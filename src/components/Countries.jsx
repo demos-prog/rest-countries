@@ -7,7 +7,7 @@ export default function Countries({ theme, numberOfCountriesOnPage }) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
 
   async function getAllCountries() {
-    let res = await fetch(`https://restcountries.com/v3.1/all`);
+    let res = await fetch(`https://restcountries.com/v3.1/all?fields=flags,name,population,capital,region`);
     if (res.ok) {
       return await res.json();
     } else {
