@@ -3,6 +3,7 @@ import "./null_styles.css";
 import Header from "./components/Header";
 import "./App.css";
 import styled from "styled-components";
+import NavBar from "./components/NavBar";
 let Countries = React.lazy(() => import("./components/Countries"));
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <OuterDiv theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
+        <NavBar theme={theme}/>
         <Suspense fallback="loading">
           <Countries
             theme={theme}

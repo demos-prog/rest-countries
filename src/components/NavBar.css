@@ -1,0 +1,9 @@
+nav {
+  display: flex;
+  height: 60px;
+  align-items: flex-end;
+}
+
+#searchInput {
+  margin-left: 2.5vw;
+}
