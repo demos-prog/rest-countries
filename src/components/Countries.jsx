@@ -38,7 +38,7 @@ export default function Countries({ theme, numberOfCountriesOnPage }) {
 
   let list = arrOfCountries.map((country) => {
     return (
-      <div className="countriesItem" key={nanoid()}>
+      <ItemDiv theme={theme} className="countriesItem" key={nanoid()}>
         <Div theme={theme} className="countryCard">
           <div className="flag">
             <img alt="flag" src={country.flags.png}></img>
@@ -59,7 +59,7 @@ export default function Countries({ theme, numberOfCountriesOnPage }) {
             </p>
           </div>
         </Div>
-      </div>
+      </ItemDiv>
     );
   });
 
@@ -69,4 +69,9 @@ export default function Countries({ theme, numberOfCountriesOnPage }) {
 const Div = styled.div`
   background-color: ${(props) => (props.theme === true ? "white" : "#2B3743")};
   color: ${(props) => (props.theme === true ? "black" : "white")};
+`;
+
+const ItemDiv = styled.div`
+  background-color: ${(props) =>
+    props.theme === true ? "#FAFAFA" : "#202D36"};
 `;
