@@ -15,6 +15,7 @@ header .wrapper {
 }
 
 header .wrapper span {
+  cursor: default;
   margin-left: 50px;
 }
 
