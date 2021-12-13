@@ -12,3 +12,8 @@
   padding: 10px 50px;
   border-radius: 5px;
 }
+
+.loaderWrap{
+  display: flex;
+  justify-content: center;
+}

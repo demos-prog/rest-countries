@@ -1,9 +1,10 @@
 import React, { useState, Suspense } from "react";
+import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
 import Header from "./components/Header";
-import "./App.css";
 import styled from "styled-components";
 import NavBar from "./components/NavBar";
+import "./App.css";
 const Countries = React.lazy(() => import("./components/Countries"));
 
 export default function App() {
@@ -20,6 +21,12 @@ export default function App() {
     setTheme((prev) => !prev);
   }
 
+  const Loader = (
+    <div className="loaderWrap">
+      <img src={spinner} alt="Loading..."></img>
+    </div>
+  );
+
   return (
     <OuterDiv id="outerDiv" theme={theme}>
       <div id="wrapper">
@@ -29,7 +36,7 @@ export default function App() {
           setInputValue={setInputValue}
           setSelectValue={setSelectValue}
         />
-        <Suspense fallback="loading">
+        <Suspense fallback={Loader}>
           <Countries
             inputValue={inputValue}
             selectValue={selectValue}
