@@ -14,10 +14,14 @@ export default function Countries({
   async function getAllCountries() {
     let res = await fetch(
       `https://restcountries.com/v3.1/${
-        inputValue === ""
-          ? "all?fields=flags,name,population,capital,region"
-          : "name/" +
-            inputValue +
+        selectValue === "All"
+          ? inputValue === ""
+            ? "all?fields=flags,name,population,capital,region"
+            : "name/" +
+              inputValue +
+              "?fields=flags,name,population,capital,region"
+          : "region/" +
+            selectValue +
             "?fields=flags,name,population,capital,region"
       }`
     );
@@ -49,7 +53,7 @@ export default function Countries({
         console.log(countries[0]);
       }
     });
-  }, [numberOfCountriesOnPage, inputValue]); //eslint-disable-line
+  }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
   let list = arrOfCountries.map((country) => {
     return (
