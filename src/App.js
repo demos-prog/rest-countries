@@ -31,7 +31,9 @@ export default function App() {
             numberOfCountriesOnPage={numberOfCountriesOnPage}
           />
         </Suspense>
-        <button id="moreBtn" onClick={getMore}>See more</button>
+        <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
+          See more
+        </StyledBtn>
       </div>
     </OuterDiv>
   );
@@ -41,4 +43,9 @@ const OuterDiv = styled.div`
   background-color: ${(props) => (props.theme === true ? "white" : "#202D36")};
   display: flex;
   justify-content: center;
+`;
+
+const StyledBtn = styled.button`
+  background-color: ${(props) => (props.theme === true ? "#C0C0C0" : "white")};
+  color: ${(props) => (props.theme === true ? "white" : "black")};
 `;
