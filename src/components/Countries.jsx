@@ -3,11 +3,21 @@ import { nanoid } from "nanoid";
 import "./Countries.css";
 import styled from "styled-components";
 
-export default function Countries({ theme, numberOfCountriesOnPage }) {
+export default function Countries({
+  theme,
+  numberOfCountriesOnPage,
+  inputValue,
+}) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
 
   async function getAllCountries() {
-    let res = await fetch(`https://restcountries.com/v3.1/all?fields=flags,name,population,capital,region`);
+    let res = await fetch(
+      `https://restcountries.com/v3.1/${
+        inputValue === ""
+          ? "all?fields=flags,name,population,capital,region"
+          : "name/" + inputValue
+      }`
+    );
     if (res.ok) {
       return await res.json();
     } else {
@@ -34,7 +44,7 @@ export default function Countries({ theme, numberOfCountriesOnPage }) {
       setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
       console.log(countries[0]);
     });
-  }, [numberOfCountriesOnPage]);
+  }, [numberOfCountriesOnPage, inputValue]); //eslint-disable-line
 
   let list = arrOfCountries.map((country) => {
     return (

@@ -4,11 +4,12 @@ import Header from "./components/Header";
 import "./App.css";
 import styled from "styled-components";
 import NavBar from "./components/NavBar";
-let Countries = React.lazy(() => import("./components/Countries"));
+const Countries = React.lazy(() => import("./components/Countries"));
 
 function App() {
   const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(16);
   const [theme, setTheme] = useState(true);
+  const [inputValue, setInputValue] = useState("");
 
   function getMore() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
@@ -22,9 +23,10 @@ function App() {
     <OuterDiv theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
-        <NavBar theme={theme}/>
+        <NavBar theme={theme} setInputValue={setInputValue} />
         <Suspense fallback="loading">
           <Countries
+            inputValue={inputValue}
             theme={theme}
             numberOfCountriesOnPage={numberOfCountriesOnPage}
           />

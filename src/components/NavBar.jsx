@@ -1,11 +1,21 @@
+import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import "./NavBar.css";
 
-export default function NavBar({ theme }) {
+export default function NavBar({ theme, setInputValue }) {
+  const [curInpVal, setCurInpValue] = useState("");
+
+  function searchSubmit(e) {
+    e.preventDefault();
+    setInputValue(curInpVal);
+  }
+
   return (
     <StyledNav theme={theme}>
-      <form id="searchInput">
+      <form id="searchInput" onSubmit={searchSubmit}>
         <StyledInput
+          value={curInpVal}
+          onChange={(e) => setCurInpValue(e.target.value)}
           theme={theme}
           type="text"
           placeholder="Search for a country ..."
