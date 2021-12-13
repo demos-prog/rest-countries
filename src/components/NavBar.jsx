@@ -26,14 +26,14 @@ export default function NavBar({ theme, setInputValue, setSelectValue }) {
         ></StyledInput>
       </form>
 
-      <select id="regionFilter" onChange={handleChSelect}>
+      <StyledSelect id="regionFilter" theme={theme} onChange={handleChSelect}>
         <option value="All">All</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
-      </select>
+      </StyledSelect>
     </StyledNav>
   );
 }
@@ -46,5 +46,11 @@ const StyledNav = styled.nav`
 const StyledInput = styled.input`
   padding: 10px;
   background-color: ${(props) => (props.theme === true ? "white" : "#2B3743")};
+  color: ${(props) => (props.theme === true ? "black" : "white")};
+`;
+
+const StyledSelect = styled.select`
+  background-color: ${(props) =>
+    props.theme === true ? "#FAFAFA" : "#2B3743"};
   color: ${(props) => (props.theme === true ? "black" : "white")};
 `;

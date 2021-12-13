@@ -9,5 +9,8 @@ nav {
 }
 
 select{
-  
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 2.5vw;
+  padding: 9px 15px;
 }
