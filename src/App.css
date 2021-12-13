@@ -1,3 +1,14 @@
-#wrapper{
-  max-width: 1280px;
+#outerDiv {
+  min-height: 100vh;
+  height: 100%;
+}
+
+#wrapper {
+  width: 1280px;
+}
+
+#moreBtn {
+  margin: 0 calc(50% - 75px) 20px;
+  padding: 10px 50px;
+  border-radius: 5px;
 }

@@ -15,13 +15,15 @@ export default function Countries({
       `https://restcountries.com/v3.1/${
         inputValue === ""
           ? "all?fields=flags,name,population,capital,region"
-          : "name/" + inputValue
+          : "name/" +
+            inputValue +
+            "?fields=flags,name,population,capital,region"
       }`
     );
     if (res.ok) {
       return await res.json();
     } else {
-      console.log("Err");
+      alert("Nothing was found !");
     }
   }
 
@@ -41,8 +43,10 @@ export default function Countries({
 
   useMemo(() => {
     getAllCountries().then((countries) => {
-      setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
-      console.log(countries[0]);
+      if (Array.isArray(countries)) {
+        setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
+        console.log(countries[0]);
+      }
     });
   }, [numberOfCountriesOnPage, inputValue]); //eslint-disable-line
 

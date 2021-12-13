@@ -6,10 +6,10 @@ import styled from "styled-components";
 import NavBar from "./components/NavBar";
 const Countries = React.lazy(() => import("./components/Countries"));
 
-function App() {
+export default function App() {
   const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(16);
-  const [theme, setTheme] = useState(true);
-  const [inputValue, setInputValue] = useState("");
+  const [theme, setTheme] = useState(false);
+  const [inputValue, setInputValue] = useState("peru");
 
   function getMore() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
@@ -20,7 +20,7 @@ function App() {
   }
 
   return (
-    <OuterDiv theme={theme}>
+    <OuterDiv id="outerDiv" theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
         <NavBar theme={theme} setInputValue={setInputValue} />
@@ -31,13 +31,11 @@ function App() {
             numberOfCountriesOnPage={numberOfCountriesOnPage}
           />
         </Suspense>
-        <button onClick={getMore}>See more</button>
+        <button id="moreBtn" onClick={getMore}>See more</button>
       </div>
     </OuterDiv>
   );
 }
-
-export default App;
 
 const OuterDiv = styled.div`
   background-color: ${(props) => (props.theme === true ? "white" : "#202D36")};
