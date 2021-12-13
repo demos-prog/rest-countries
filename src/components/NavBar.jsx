@@ -2,12 +2,16 @@ import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import "./NavBar.css";
 
-export default function NavBar({ theme, setInputValue }) {
+export default function NavBar({ theme, setInputValue, setSelectValue }) {
   const [curInpVal, setCurInpValue] = useState("");
 
   function searchSubmit(e) {
     e.preventDefault();
     setInputValue(curInpVal);
+  }
+
+  function handleChSelect(e) {
+    setSelectValue(e.target.value);
   }
 
   return (
@@ -21,6 +25,15 @@ export default function NavBar({ theme, setInputValue }) {
           placeholder="Search for a country ..."
         ></StyledInput>
       </form>
+
+      <select id="regionFilter" onChange={handleChSelect}>
+        <option value="All">All</option>
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
     </StyledNav>
   );
 }

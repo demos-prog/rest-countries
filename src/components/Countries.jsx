@@ -7,6 +7,7 @@ export default function Countries({
   theme,
   numberOfCountriesOnPage,
   inputValue,
+  selectValue,
 }) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
 

@@ -9,7 +9,8 @@ const Countries = React.lazy(() => import("./components/Countries"));
 export default function App() {
   const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(16);
   const [theme, setTheme] = useState(false);
-  const [inputValue, setInputValue] = useState("peru");
+  const [inputValue, setInputValue] = useState("");
+  const [selectValue, setSelectValue] = useState("All");
 
   function getMore() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
@@ -23,10 +24,15 @@ export default function App() {
     <OuterDiv id="outerDiv" theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
-        <NavBar theme={theme} setInputValue={setInputValue} />
+        <NavBar
+          theme={theme}
+          setInputValue={setInputValue}
+          setSelectValue={setSelectValue}
+        />
         <Suspense fallback="loading">
           <Countries
             inputValue={inputValue}
+            selectValue={selectValue}
             theme={theme}
             numberOfCountriesOnPage={numberOfCountriesOnPage}
           />
