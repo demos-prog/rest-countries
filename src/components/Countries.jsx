@@ -55,8 +55,6 @@ export default function Countries({
         setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
       }
     });
-
-    console.log("re");
   }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
   let list = arrOfCountries.map((country) => {
