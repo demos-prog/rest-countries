@@ -1,6 +1,6 @@
 import React, { useState, Suspense } from "react";
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
 import Header from "./components/Header";
@@ -29,42 +29,37 @@ export default function App() {
     </div>
   );
 
-  function Content() {
-    return (
-      <>
-        <NavBar
-          theme={theme}
-          setInputValue={setInputValue}
-          setSelectValue={setSelectValue}
-        />
-        <Suspense fallback={Loader}>
-          <Countries
-            setPath={setPath}
-            inputValue={inputValue}
-            selectValue={selectValue}
-            theme={theme}
-            numberOfCountriesOnPage={numberOfCountriesOnPage}
-          />
-        </Suspense>
-        <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
-          See more
-        </StyledBtn>
-      </>
-    );
-  }
-
-  function NothingEl() {
-    return <p>There's nothing here!</p>;
-  }
-
   return (
     <OuterDiv id="outerDiv" theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
+
         <Routes>
-          <Route path="/" element={<Content />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <NavBar
+                  theme={theme}
+                  setInputValue={setInputValue}
+                  setSelectValue={setSelectValue}
+                />
+                <Suspense fallback={Loader}>
+                  <Countries
+                    setPath={setPath}
+                    inputValue={inputValue}
+                    selectValue={selectValue}
+                    theme={theme}
+                    numberOfCountriesOnPage={numberOfCountriesOnPage}
+                  />
+                </Suspense>
+                <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
+                  See more
+                </StyledBtn>
+              </>
+            }
+          />
           <Route path={path} element={<h1>Hello</h1>} />
-          <Route path="*" element={<NothingEl />} />
         </Routes>
       </div>
     </OuterDiv>

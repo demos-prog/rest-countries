@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 import "./Countries.css";
 import styled from "styled-components";
+import { useEffect } from "react/cjs/react.development";
 
 export default function Countries({
   theme,
@@ -48,13 +49,14 @@ export default function Countries({
     return result.split("").reverse().join("");
   }
 
-  useMemo(() => {
+  useEffect(() => {
     getAllCountries().then((countries) => {
       if (Array.isArray(countries)) {
         setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
-        console.log(countries[0]);
       }
     });
+
+    console.log("re");
   }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
   let list = arrOfCountries.map((country) => {
