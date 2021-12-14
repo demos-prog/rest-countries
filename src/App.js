@@ -5,6 +5,7 @@ import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import CountryDetails from "./components/CountryDetails";
 import "./App.css";
 const Countries = React.lazy(() => import("./components/Countries"));
 
@@ -57,7 +58,7 @@ export default function App() {
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={List} />
-          <Route path={path} element={<h1>Hello</h1>} />
+          <Route path={path} element={<CountryDetails />} />
         </Routes>
       </div>
     </OuterDiv>
