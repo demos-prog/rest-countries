@@ -29,36 +29,34 @@ export default function App() {
     </div>
   );
 
+  const List = (
+    <>
+      <NavBar
+        theme={theme}
+        setInputValue={setInputValue}
+        setSelectValue={setSelectValue}
+      />
+      <Suspense fallback={Loader}>
+        <Countries
+          setPath={setPath}
+          inputValue={inputValue}
+          selectValue={selectValue}
+          theme={theme}
+          numberOfCountriesOnPage={numberOfCountriesOnPage}
+        />
+      </Suspense>
+      <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
+        See more
+      </StyledBtn>
+    </>
+  );
+
   return (
     <OuterDiv id="outerDiv" theme={theme}>
       <div id="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme} />
-
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <NavBar
-                  theme={theme}
-                  setInputValue={setInputValue}
-                  setSelectValue={setSelectValue}
-                />
-                <Suspense fallback={Loader}>
-                  <Countries
-                    setPath={setPath}
-                    inputValue={inputValue}
-                    selectValue={selectValue}
-                    theme={theme}
-                    numberOfCountriesOnPage={numberOfCountriesOnPage}
-                  />
-                </Suspense>
-                <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
-                  See more
-                </StyledBtn>
-              </>
-            }
-          />
+          <Route path="/" element={List} />
           <Route path={path} element={<h1>Hello</h1>} />
         </Routes>
       </div>
