@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { nanoid } from "nanoid";
+import { Link } from "react-router-dom";
 import "./Countries.css";
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ export default function Countries({
   numberOfCountriesOnPage,
   inputValue,
   selectValue,
+  setPath,
 }) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
 
@@ -56,28 +58,32 @@ export default function Countries({
   }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
   let list = arrOfCountries.map((country) => {
+    let countryName = "/" + country.name.common.replace(/\s/g, "_");
+
     return (
       <ItemDiv theme={theme} className="countriesItem" key={nanoid()}>
-        <Div theme={theme} className="countryCard">
-          <div className="flag">
-            <img alt="flag" src={country.flags.png}></img>
-          </div>
-          <div className="content">
-            <b>{country.name.common}</b>
-            <p>
-              <b>Population:</b> {addDots(country.population)}
-            </p>
-            <p>
-              <b>Region:</b> {country.region}
-            </p>
-            <p>
-              <b>Capital:</b>{" "}
-              {Array.isArray(country.capital)
-                ? country.capital[0]
-                : country.capital}
-            </p>
-          </div>
-        </Div>
+        <Link onClick={() => setPath(countryName)} to={countryName}>
+          <Div theme={theme} className="countryCard">
+            <div className="flag">
+              <img alt="flag" src={country.flags.png}></img>
+            </div>
+            <div className="content">
+              <b>{country.name.common}</b>
+              <p>
+                <b>Population:</b> {addDots(country.population)}
+              </p>
+              <p>
+                <b>Region:</b> {country.region}
+              </p>
+              <p>
+                <b>Capital:</b>{" "}
+                {Array.isArray(country.capital)
+                  ? country.capital[0]
+                  : country.capital}
+              </p>
+            </div>
+          </Div>
+        </Link>
       </ItemDiv>
     );
   });

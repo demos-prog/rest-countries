@@ -1,5 +1,6 @@
 import React, { useState, Suspense } from "react";
 import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
 import Header from "./components/Header";
@@ -12,6 +13,7 @@ export default function App() {
   const [theme, setTheme] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState("All");
+  const [path, setPath] = useState("");
 
   function getMore() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
@@ -27,10 +29,9 @@ export default function App() {
     </div>
   );
 
-  return (
-    <OuterDiv id="outerDiv" theme={theme}>
-      <div id="wrapper">
-        <Header theme={theme} toggleTheme={toggleTheme} />
+  function Content() {
+    return (
+      <>
         <NavBar
           theme={theme}
           setInputValue={setInputValue}
@@ -38,6 +39,7 @@ export default function App() {
         />
         <Suspense fallback={Loader}>
           <Countries
+            setPath={setPath}
             inputValue={inputValue}
             selectValue={selectValue}
             theme={theme}
@@ -47,6 +49,23 @@ export default function App() {
         <StyledBtn theme={theme} id="moreBtn" onClick={getMore}>
           See more
         </StyledBtn>
+      </>
+    );
+  }
+
+  function NothingEl() {
+    return <p>There's nothing here!</p>;
+  }
+
+  return (
+    <OuterDiv id="outerDiv" theme={theme}>
+      <div id="wrapper">
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path={path} element={<h1>Hello</h1>} />
+          <Route path="*" element={<NothingEl />} />
+        </Routes>
       </div>
     </OuterDiv>
   );
