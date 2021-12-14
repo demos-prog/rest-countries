@@ -1,8 +1,8 @@
 import React, { useState, Suspense } from "react";
+import styled from "styled-components";
 import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
 import Header from "./components/Header";
-import styled from "styled-components";
 import NavBar from "./components/NavBar";
 import "./App.css";
 const Countries = React.lazy(() => import("./components/Countries"));
