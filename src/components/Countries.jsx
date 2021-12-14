@@ -98,5 +98,5 @@ const Div = styled.div`
 
 const ItemDiv = styled.div`
   background-color: ${(props) =>
-    props.theme === true ? "#FAFAFA" : "#202D36"};
+    props.theme === true ? "#E2E2E2" : "#202D36"};
 `;

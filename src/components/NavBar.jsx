@@ -40,16 +40,18 @@ export default function NavBar({ theme, setInputValue, setSelectValue }) {
 
 const StyledNav = styled.nav`
   background-color: ${(props) =>
-    props.theme === true ? "#FAFAFA" : "#202D36"};
+    props.theme === true ? "#E2E2E2" : "#202D36"};
 `;
 
 const StyledInput = styled.input`
+  border-radius: 5px;
   padding: 10px;
   background-color: ${(props) => (props.theme === true ? "white" : "#2B3743")};
   color: ${(props) => (props.theme === true ? "black" : "white")};
 `;
 
 const StyledSelect = styled.select`
+  border-radius: 5px;
   background-color: ${(props) =>
     props.theme === true ? "#FAFAFA" : "#2B3743"};
   color: ${(props) => (props.theme === true ? "black" : "white")};

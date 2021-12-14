@@ -11,6 +11,10 @@
   margin: 0 calc(50% - 75px) 20px;
   padding: 10px 50px;
   border-radius: 5px;
+  border: 1px solid #000;
+  white-space: nowrap;
+  background-color: white;
+  color: #000;
 }
 
 .loaderWrap{
