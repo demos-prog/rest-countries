@@ -57,12 +57,17 @@ export default function Countries({
     });
   }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
+  function handleClick(name) {
+    setPath(name);
+    localStorage.setItem("path", name);
+  }
+
   let list = arrOfCountries.map((country) => {
     let countryName = "/" + country.name.common.replace(/\s/g, "_");
 
     return (
       <ItemDiv theme={theme} className="countriesItem" key={nanoid()}>
-        <Link onClick={() => setPath(countryName)} to={countryName}>
+        <Link onClick={() => handleClick(countryName)} to={countryName}>
           <Div theme={theme} className="countryCard">
             <div className="flag">
               <img alt="flag" src={country.flags.png}></img>

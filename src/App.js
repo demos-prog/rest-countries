@@ -14,7 +14,7 @@ export default function App() {
   const [theme, setTheme] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState("All");
-  const [path, setPath] = useState("");
+  const [path, setPath] = useState(localStorage.getItem("path") || "");
 
   function getMore() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
