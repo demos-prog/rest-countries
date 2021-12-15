@@ -11,7 +11,9 @@ const Countries = React.lazy(() => import("./components/Countries"));
 
 export default function App() {
   const [numberOfCountriesOnPage, setNumberOfCountriesOnPage] = useState(16);
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage.getItem("theme")) || false
+  );
   const [inputValue, setInputValue] = useState("");
   const [selectValue, setSelectValue] = useState("All");
   const [path, setPath] = useState(localStorage.getItem("path") || "");
@@ -22,6 +24,7 @@ export default function App() {
 
   function toggleTheme() {
     setTheme((prev) => !prev);
+    localStorage.setItem("theme", JSON.stringify(!theme));
   }
 
   const Loader = (
