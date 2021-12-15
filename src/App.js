@@ -61,7 +61,7 @@ export default function App() {
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={List} />
-          <Route path={path} element={<CountryDetails />} />
+          <Route path={path} element={<CountryDetails theme={theme}/>} />
         </Routes>
       </div>
     </OuterDiv>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react/cjs/react.development";
+import styled from "styled-components";
 import "./CountryDetails.css";
 
-export default function CountryDetails() {
+export default function CountryDetails({ theme }) {
   const [country, setCountry] = useState(null);
 
   async function getCountry(country) {
@@ -23,9 +24,19 @@ export default function CountryDetails() {
     <>
       {country && (
         <div id="sc_wrap">
+          <div id="backButtonWrap">
+            <StyledButton onClick={() => window.history.back()} theme={theme}>
+              Back
+            </StyledButton>
+          </div>
           <div>{country.capital[0]}</div>
         </div>
       )}
     </>
   );
 }
+
+const StyledButton = styled.button`
+  background-color: ${(props) => (props.theme === true ? "white" : "#2B3743")};
+  color: ${(props) => (props.theme === true ? "black" : "white")};
+`;
