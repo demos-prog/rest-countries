@@ -67,28 +67,28 @@ export default function Countries({
 
     return (
       <ItemDiv theme={theme} className="countriesItem" key={nanoid()}>
-        <Link onClick={() => handleClick(countryName)} to={countryName}>
-          <Div theme={theme} className="countryCard">
+        <Div theme={theme} className="countryCard">
+          <Link onClick={() => handleClick(countryName)} to={countryName}>
             <div className="flag">
               <img alt="flag" src={country.flags.png}></img>
             </div>
-            <div className="content">
-              <b>{country.name.common}</b>
-              <p>
-                <b>Population:</b> {addDots(country.population)}
-              </p>
-              <p>
-                <b>Region:</b> {country.region}
-              </p>
-              <p>
-                <b>Capital:</b>{" "}
-                {Array.isArray(country.capital)
-                  ? country.capital[0]
-                  : country.capital}
-              </p>
-            </div>
-          </Div>
-        </Link>
+          </Link>
+          <div className="content">
+            <b>{country.name.common}</b>
+            <p>
+              <b>Population:</b> {addDots(country.population)}
+            </p>
+            <p>
+              <b>Region:</b> {country.region}
+            </p>
+            <p>
+              <b>Capital:</b>{" "}
+              {Array.isArray(country.capital)
+                ? country.capital[0]
+                : country.capital}
+            </p>
+          </div>
+        </Div>
       </ItemDiv>
     );
   });
