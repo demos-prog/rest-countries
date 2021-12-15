@@ -7,7 +7,7 @@
 #backButtonWrap{
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 150px;
 }
 
 #backButtonWrap button {
@@ -18,4 +18,14 @@
   -webkit-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.2);
+}
+
+#c_wrap{
+  height: calc(100vh - 200px);
+  padding: 0 50px;
+  display: flex;
+}
+
+#cont{
+  display: flex;
 }
