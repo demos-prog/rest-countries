@@ -49,9 +49,11 @@ export default function App() {
           numberOfCountriesOnPage={numberOfCountriesOnPage}
         />
       </Suspense>
-      <button id="moreBtn" onClick={getMore}>
-        See more
-      </button>
+      <div id="btnWrap">
+        <button id="moreBtn" onClick={getMore}>
+          See more
+        </button>
+      </div>
     </>
   );
 
@@ -61,7 +63,7 @@ export default function App() {
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={List} />
-          <Route path={path} element={<CountryDetails theme={theme}/>} />
+          <Route path={path} element={<CountryDetails theme={theme} />} />
         </Routes>
       </div>
     </OuterDiv>
