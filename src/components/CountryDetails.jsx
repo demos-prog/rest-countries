@@ -21,6 +21,15 @@ export default function CountryDetails({ theme }) {
     });
   }, []);
 
+  function makeStr(arr) {
+    let result = [];
+    let values = Object.values(arr);
+    for (let item of values) {
+      result.push(item);
+    }
+    return result.join(", ");
+  }
+
   return (
     <>
       {country && (
@@ -62,10 +71,23 @@ export default function CountryDetails({ theme }) {
                 <div>
                   <StyledDiv theme={theme}>
                     <b>Currencies: </b>
-                    {/* {country.currencies.(Object.keys(country.currencies)[0]).symbol} */}
-                    {Object.keys(country.currencies)[0]} 
+                    {
+                      country.currencies[
+                        `${Object.keys(country.currencies)[0]}`
+                      ].name
+                    }
+                  </StyledDiv>
+                  <StyledDiv theme={theme}>
+                    <b>Languages: </b>
+                    {makeStr(country.languages)}
                   </StyledDiv>
                 </div>
+              </div>
+              <div>
+                <StyledDiv theme={theme}>
+                  <b>Border countries: </b>
+                  {makeStr(country.borders)}
+                </StyledDiv>
               </div>
             </div>
           </div>
