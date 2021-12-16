@@ -20,7 +20,6 @@
   align-items: flex-start;
   flex-direction: column;
   width: 80%;
-  height: 80%;
 }
 
 .flag {
@@ -44,4 +43,21 @@
   flex-wrap: nowrap;
   width: 100%;
   padding: 10px;
+}
+
+@media (max-width: 900px) {
+  .countriesItem {
+    flex: 1 0 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  .countriesItem {
+    flex: 1 0 50%;
+  }
+}
+@media (max-width: 400px) {
+  .countriesItem {
+    flex: 1 0 100%;
+  }
 }

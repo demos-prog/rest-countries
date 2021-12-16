@@ -52,3 +52,16 @@ header .wrapper button {
   background-size: contain;
   background-image: url("./images/clear-sun_icon-icons.com_54321.png");
 }
+
+@media (max-width: 420px) {
+  header {
+    width: 100vw;
+  }
+  #logo {
+    margin-left: 15px;
+  }
+  .lightBtn,
+  .darkBtn {
+    margin-right: 15px;
+  }
+}

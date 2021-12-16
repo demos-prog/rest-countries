@@ -74,7 +74,7 @@ export default function Countries({
             </div>
           </Link>
           <div className="content">
-            <b>{country.name.common}</b>
+            <b className="countryName">{country.name.common}</b>
             <p>
               <b>Population:</b> {addDots(country.population)}
             </p>

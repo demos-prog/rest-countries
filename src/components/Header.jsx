@@ -5,7 +5,7 @@ export default function Header({ toggleTheme, theme }) {
   return (
     <StyledHeader theme={theme}>
       <div className="wrapper">
-        <StyledSpan theme={theme}>Where in the World ?</StyledSpan>
+        <StyledSpan id="logo" theme={theme}>Where in the World ?</StyledSpan>
         <StyledButtom
           className={theme ? "lightBtn" : "darkBtn"}
           theme={theme}
