@@ -6,8 +6,12 @@ export default function Header({ toggleTheme, theme }) {
     <StyledHeader theme={theme}>
       <div className="wrapper">
         <StyledSpan theme={theme}>Where in the World ?</StyledSpan>
-        <StyledButtom theme={theme} onClick={() => toggleTheme()}>
-          Change theme
+        <StyledButtom
+          className={theme ? "lightBtn" : "darkBtn"}
+          theme={theme}
+          onClick={() => toggleTheme()}
+        >
+          {theme ? "Dark theme" : "Light theme"}
         </StyledButtom>
       </div>
     </StyledHeader>

@@ -25,3 +25,30 @@ header .wrapper button {
   background-color: transparent;
   margin-right: 50px;
 }
+
+.lightBtn,
+.darkBtn {
+  display: flex;
+  align-items: center;
+}
+.lightBtn::before {
+  margin-right: 10px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-position: center center;
+  background-size: contain;
+  background-image: url("./images/moon_icon-icons.com_48261.png");
+}
+
+.darkBtn::before {
+  margin-right: 10px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-position: center center;
+  background-size: contain;
+  background-image: url("./images/clear-sun_icon-icons.com_54321.png");
+}
