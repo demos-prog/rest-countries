@@ -16,7 +16,6 @@ export default function CountryDetails({ theme }) {
   useEffect(() => {
     let name = window.location.pathname.slice(1).match(/[a-zA-Z]+/);
     getCountry(name).then((country) => {
-      console.log(country[0]);
       setCountry(country[0]);
     });
   }, []);

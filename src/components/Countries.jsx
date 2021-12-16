@@ -50,11 +50,16 @@ export default function Countries({
   }
 
   useEffect(() => {
+    let isMounted = true;
     getAllCountries().then((countries) => {
       if (Array.isArray(countries)) {
-        setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
+        if (isMounted)
+          setArrOfCountries(countries.slice(0, numberOfCountriesOnPage));
       }
     });
+    return () => {
+      isMounted = false;
+    };
   }, [numberOfCountriesOnPage, inputValue, selectValue]); //eslint-disable-line
 
   function handleClick(name) {
