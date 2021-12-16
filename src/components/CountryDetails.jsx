@@ -22,9 +22,11 @@ export default function CountryDetails({ theme }) {
 
   function makeStr(arr) {
     let result = [];
-    let values = Object.values(arr);
-    for (let item of values) {
-      result.push(item);
+    if (Array.isArray(arr)) {
+      let values = Object.values(arr);
+      for (let item of values) {
+        result.push(item);
+      }
     }
     return result.join(", ");
   }
@@ -72,7 +74,7 @@ export default function CountryDetails({ theme }) {
                 <div className="dop_info">
                   <StyledDiv className="it" theme={theme}>
                     <b>Currencies: </b>
-                    {
+                    { 
                       country.currencies[
                         `${Object.keys(country.currencies)[0]}`
                       ].name
@@ -80,14 +82,15 @@ export default function CountryDetails({ theme }) {
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Languages: </b>
-                    {makeStr(country.languages)}
+                    {Array.isArray(country.languages) &&
+                      makeStr(country.languages)}
                   </StyledDiv>
                 </div>
               </div>
 
               <StyledDiv id="borders" theme={theme}>
                 <b>Border Countries: </b>
-                {makeStr(country.borders)}
+                {Array.isArray(country.borders) && makeStr(country.borders)}
               </StyledDiv>
             </div>
           </div>
