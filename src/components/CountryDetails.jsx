@@ -43,33 +43,35 @@ export default function CountryDetails({ theme }) {
             <div id="fl_wrap">
               <img src={country.flags.png} alt="flag"></img>
             </div>
-            <div>
-              <StyledDiv theme={theme}>{country.name.common}</StyledDiv>
+            <div className="wrp">
+              <StyledDiv className="title" theme={theme}>
+                <b>{country.name.common}</b>
+              </StyledDiv>
               <div id="cont">
                 <div>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Native name: </b>
                     {country.name.official}
                   </StyledDiv>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Population: </b>
                     {addDots(country.population)}
                   </StyledDiv>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Region: </b>
                     {country.region}
                   </StyledDiv>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Sub region: </b>
                     {country.subregion}
                   </StyledDiv>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Capital: </b>
                     {country.capital[0]}
                   </StyledDiv>
                 </div>
-                <div>
-                  <StyledDiv theme={theme}>
+                <div className="dop_info">
+                  <StyledDiv className="it" theme={theme}>
                     <b>Currencies: </b>
                     {
                       country.currencies[
@@ -77,18 +79,17 @@ export default function CountryDetails({ theme }) {
                       ].name
                     }
                   </StyledDiv>
-                  <StyledDiv theme={theme}>
+                  <StyledDiv className="it" theme={theme}>
                     <b>Languages: </b>
                     {makeStr(country.languages)}
                   </StyledDiv>
                 </div>
               </div>
-              <div>
-                <StyledDiv theme={theme}>
-                  <b>Border countries: </b>
-                  {makeStr(country.borders)}
-                </StyledDiv>
-              </div>
+
+              <StyledDiv id="borders" theme={theme}>
+                <b>Border Countries: </b>
+                {makeStr(country.borders)}
+              </StyledDiv>
             </div>
           </div>
         </div>

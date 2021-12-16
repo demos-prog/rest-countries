@@ -4,6 +4,14 @@
   flex-direction: column;
 }
 
+.title{
+  font-size: 30px;
+}
+
+.wrp{
+  margin-left: 50px;
+}
+
 #backButtonWrap{
   display: flex;
   align-items: center;
@@ -27,5 +35,18 @@
 }
 
 #cont{
+  margin-top: 20px;
   display: flex;
+}
+
+.it{
+  margin-top: 10px;
+}
+
+.dop_info{
+  margin-left: 50px;
+}
+
+#borders{
+  margin-top: 30px;
 }
