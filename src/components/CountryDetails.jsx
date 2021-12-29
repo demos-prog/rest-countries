@@ -5,7 +5,6 @@ import { addDots } from "./Countries";
 
 export default function CountryDetails({ theme }) {
   const [country, setCountry] = useState(null);
-  console.log(country);
 
   async function getCountry(country) {
     const res = await fetch(
