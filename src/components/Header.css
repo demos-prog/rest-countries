@@ -3,6 +3,7 @@
 }
 
 header {
+  white-space: nowrap;
   height: 50px;
   display: flex;
   align-items: center;
@@ -54,14 +55,15 @@ header .wrapper button {
 }
 
 @media (max-width: 420px) {
-  header {
-    width: 100vw;
-  }
-  #logo {
-    margin-left: 15px;
-  }
   .lightBtn,
   .darkBtn {
+    margin-right: 10px;
+  }
+
+  header .wrapper button{
     margin-right: 15px;
+  }
+  #logo{
+    margin-left: 15px;
   }
 }

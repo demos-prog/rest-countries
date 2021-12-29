@@ -1,14 +1,14 @@
 * {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 #outerDiv {
   min-height: 100vh;
-  height: 100%;
 }
 
 #wrapper {
   max-width: 1280px;
+  margin: 0 15px;
 }
 
 #moreBtn {
