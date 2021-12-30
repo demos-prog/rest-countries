@@ -22,12 +22,7 @@ export default function CountryDetails({ theme }) {
 
   function makeStr(arr) {
     if (Array.isArray(arr)) {
-      let result = [];
-      let values = Object.values(arr);
-      for (let item of values) {
-        result.push(item);
-      }
-      return result.join(", ");
+      return arr.join(", ");
     } else {
       return "none";
     }
