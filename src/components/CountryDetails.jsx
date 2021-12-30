@@ -85,11 +85,11 @@ export default function CountryDetails({ theme }) {
                 <div className="dop_info">
                   <StyledDiv className="it" theme={theme}>
                     <b>Currencies: </b>
-                    {
+                    {/* {
                       country.currencies[
                         `${Object.keys(country.currencies)[0]}`
                       ].name
-                    }
+                    } */}
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Languages: </b>
