@@ -1,12 +1,12 @@
 import React, { useState, Suspense } from "react";
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
-import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import "./null_styles.css";
-import "./App.css";
+import spinner from "./components/images/Dual Ring-1s-200px.gif";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import CountryDetails from "./components/CountryDetails";
+import "./App.css";
 const Countries = React.lazy(() => import("./components/Countries"));
 
 export default function App() {

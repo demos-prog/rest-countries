@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
-import "./CountryDetails.css";
 import { addDots } from "./Countries";
+import "./CountryDetails.css";
 
 export default function CountryDetails({ theme }) {
   const [country, setCountry] = useState(null);

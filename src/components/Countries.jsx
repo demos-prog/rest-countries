@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "./Countries.css";
-import styled from "styled-components";
-import { useEffect } from "react/cjs/react.development";
 
 export function addDots(number) {
   let result = "";
