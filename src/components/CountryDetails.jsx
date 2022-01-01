@@ -15,32 +15,32 @@ export default function CountryDetails({ theme }) {
 
   useEffect(() => {
     let name = window.location.pathname.slice(1).match(/[a-zA-Z]+/);
-    getCountry(name).then((country) => {
+    getCountry(name[0].toLowerCase()).then((country) => {
       console.log(country[0]);
       setCountry(country[0]);
     });
   }, []);
 
-  // function makeStr(arr) {
-  //   if (Array.isArray(arr)) {
-  //     return arr.join(", ");
-  //   } else {
-  //     return "none";
-  //   }
-  // }
+  function makeStr(arr) {
+    if (Array.isArray(arr)) {
+      return arr.join(", ");
+    } else {
+      return "none";
+    }
+  }
 
-  // function makeStr2(obj) {
-  //   if (typeof obj === "object") {
-  //     let result = [];
-  //     let values = Object.values(obj);
-  //     for (let item of values) {
-  //       result.push(item);
-  //     }
-  //     return result.join(", ");
-  //   } else {
-  //     return "none";
-  //   }
-  // }
+  function makeStr2(obj) {
+    if (typeof obj === "object") {
+      let result = [];
+      let values = Object.values(obj);
+      for (let item of values) {
+        result.push(item);
+      }
+      return result.join(", ");
+    } else {
+      return "none";
+    }
+  }
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function CountryDetails({ theme }) {
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Population: </b>
-                    {addDots(country.population)}
+                    {addDots(country.population) || "none"}
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Region: </b>
@@ -75,32 +75,33 @@ export default function CountryDetails({ theme }) {
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Sub region: </b>
-                    {country.subregion}
+                    {country.subregion || "none"}
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Capital: </b>
-                    {country.capital[0]}
+                    {country.capital[0] || "none"}
                   </StyledDiv>
                 </div>
                 <div className="dop_info">
                   <StyledDiv className="it" theme={theme}>
                     <b>Currencies: </b>
-                    {/* {
-                      country.currencies[
-                        `${Object.keys(country.currencies)[0]}`
-                      ].name
-                    } */}
+                    {Object.keys(country.currencies).length !== 0
+                      ? country.currencies[
+                          `${Object.keys(country.currencies)[0]}`
+                        ].name
+                      : "none"}
                   </StyledDiv>
                   <StyledDiv className="it" theme={theme}>
                     <b>Languages: </b>
-                    {/* {makeStr2(country.languages)} */}
+                    {makeStr2(country.languages)}
                   </StyledDiv>
                 </div>
               </div>
 
               <StyledDiv id="borders" theme={theme}>
                 <b>Border Countries: </b>
-                {/* {Array.isArray(country.borders) && makeStr(country.borders)} */}
+                {(Array.isArray(country.borders) && makeStr(country.borders)) ||
+                  "none"}
               </StyledDiv>
             </div>
           </div>
