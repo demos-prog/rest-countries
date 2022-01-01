@@ -22,7 +22,7 @@ export default function App() {
     setNumberOfCountriesOnPage((prev) => prev + 8);
   }
 
-  function toggleTheme() {
+  export function toggleTheme() {
     setTheme((prev) => !prev);
     localStorage.setItem("theme", JSON.stringify(!theme));
   }
