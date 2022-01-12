@@ -26,19 +26,16 @@ export default function Countries({
   setPath,
 }) {
   const [arrOfCountries, setArrOfCountries] = useState([]);
+  const url = "?fields=flags,name,population,capital,region";
 
   async function getAllCountries() {
     let res = await fetch(
       `https://restcountries.com/v3.1/${
         selectValue === "All"
           ? inputValue === ""
-            ? "all?fields=flags,name,population,capital,region"
-            : "name/" +
-              inputValue +
-              "?fields=flags,name,population,capital,region"
-          : "region/" +
-            selectValue +
-            "?fields=flags,name,population,capital,region"
+            ? "all" + url
+            : "name/" + inputValue + url
+          : "region/" + selectValue + url
       }`
     );
     if (res.ok) {
